@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送你一份礼物 🎁</title>
+    <style>
+        body { margin: 0; padding: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; color: white; font-family: sans-serif; }
+        #gift-btn { padding: 20px 40px; font-size: 24px; background: #ff4757; color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.2s; }
+        #gift-btn:active { transform: scale(0.9); }
+        h1 { position: absolute; top: 20%; text-align: center; width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>同学，这是送给你的礼物，点开看看！</h1>
+    <button id="gift-btn">点击开启惊喜</button>
+
+    <audio id="bgm" src="opao.mp3" loop></audio>
+
+    <script>
+        const btn = document.getElementById('gift-btn');
+        const audio = document.getElementById('bgm');
+
+        btn.addEventListener('click', () => {
+            // 1. 播放音乐
+            audio.play();
+            
+            // 2. 隐藏按钮
+            btn.style.display = 'none';
+            document.querySelector('h1').innerText = "给我 O 泡！给我 O 泡！";
+            
+            // 3. 恶搞弹窗（可选，增加退出难度）
+            setTimeout(() => {
+                alert("好喝你就多喝点！");
+                for(let i=0; i<5; i++) {
+                    alert("给我 O 泡！！");
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
